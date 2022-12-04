@@ -1,5 +1,5 @@
-from Day2.day2 import part1, part2
+# msin for Advent of Code
+from Day3.day3 import part1, part2
 
 
-# part1()
 part2()
