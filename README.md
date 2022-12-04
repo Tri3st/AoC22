@@ -12,3 +12,11 @@ Calorie Counting.
 
 Rock, Paper, Scissors.
 
+## Day 3
+
+Rucksack problem
+
+## Day 4
+
+Sections
+
