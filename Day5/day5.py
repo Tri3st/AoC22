@@ -1,4 +1,4 @@
-from ReadDataFile import read_data
+from MyMods.ReadDataFile import read_data
 from Day5.stacks import Stacks
 
 data = """move 1 from 2 to 1

@@ -1,4 +1,4 @@
-from ReadDataFile import read_data
+from MyMods.ReadDataFile import read_data
 from Day6.msg_decoder import Decoder
 
 data = read_data("Day6/input_day6.txt")

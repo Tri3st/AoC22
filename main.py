@@ -1,5 +1,10 @@
 # main for Advent of Code
-from Day6.day6 import part1, part2
+import os
+from Day8.Day8 import part1, part2
 
 
-part2()
+part1()
+
+"""
+    For information on how to auto create directory and file structure : see AoC2021
+"""

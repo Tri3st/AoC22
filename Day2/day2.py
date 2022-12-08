@@ -1,4 +1,4 @@
-from ReadDataFile import read_data
+from MyMods.ReadDataFile import read_data
 
 datalines = read_data("Day2/input_day2.txt")
 

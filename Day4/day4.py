@@ -1,4 +1,4 @@
-from ReadDataFile import read_data
+from MyMods.ReadDataFile import read_data
 from Day4.section import SectionPair
 
 data = """2-4,6-8
