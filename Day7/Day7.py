@@ -1,6 +1,7 @@
 """Day 7"""
+from Day7.Tree import Dir, File
 from MyMods.ReadDataFile import read_data
-from Tree import Tree
+import re
 
 data = """$ cd /
 $ ls
@@ -24,16 +25,11 @@ $ ls
 4060174 j
 8033020 d.log
 5626152 d.ext
-7214296 k"""
+7214296 k""".split("\n")
 
 
 def part1():
-	tree = Tree()
-	data2 = data.split("\n")
-	for line in data2:
-		
-
-
+	
 
 def part2():
 	pass
