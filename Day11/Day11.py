@@ -1,7 +1,7 @@
 """Day 11"""
 import re
 
-from Day11.monkey import Monkey
+from Day11.monkey import Monkey, Zoo
 from MyMods.ReadDataFile import read_data
 
 data = """Monkey 0:
@@ -34,31 +34,30 @@ Monkey 3:
 
 
 def part1():
-	nr_of_monkeys = 4
-	m = []
-	for i in range(nr_of_monkeys):
-		m.append(Monkey(f"Monkey {i}"))
+    nr_of_monkeys = 4
+    zoo = Zoo()
+    for i in range(nr_of_monkeys):
+        zoo.add_monkey(Monkey(f"Monkey {i}", i))
 
-	for i in range(nr_of_monkeys):
-		print("i : ", i)
+    for i in range(nr_of_monkeys):
+        print("i : ", i)
 
-		m[i].starting_items(data[(i * 7) + 1][18:])
-		m[i].operation2(data[(i * 7) + 2][23:])
-		test = []
-		for j in range(3):
-			s = re.search(r"(\d+)", data[(i * 7) + 3 + j])
-			test.append(s.groups()[0])
-		m[i].test2(test)
+        zoo.monkeys[i].starting_items(data[(i * 7) + 1][18:])
+        zoo.monkeys[i].operation2(data[(i * 7) + 2][23:])
+        test = []
+        for j in range(3):
+            s = re.search(r"(\d+)", data[(i * 7) + 3 + j])
+            test.append(s.groups()[0])
+        zoo.monkeys[i].test2(test)
 
-		print(m[i])
-		jobs = m[i].do_round()
-		print(jobs)
-		if len(jobs) > 0:
-			for job in jobs:
-				m[job[0]].add_item(job[1])
+        print(zoo.monkeys[i])
+        jobs = zoo.monkeys[i].do_round()
+        print(jobs)
+        zoo.do_jobs(jobs)
 
-		print("after : ", m[i])
+        print("after : ", zoo.monkeys[i])
+    print(zoo)
 
 
 def part2():
-	pass
+    pass

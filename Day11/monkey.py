@@ -1,8 +1,9 @@
 # class Monkey
 class Monkey:
 
-    def __init__(self, name):
+    def __init__(self, name, monkey_id):
         self.name = name
+        self.id = monkey_id
         self.items = []
         self.operation = ""
         self.test = {
@@ -13,6 +14,9 @@ class Monkey:
 
     def add_item(self, val):
         self.items.append(val)
+
+    def remove_item(self):
+        self.items.pop(0)
 
     def starting_items(self, items):
         items2 = items.split(", ")
@@ -32,15 +36,15 @@ class Monkey:
         op = self.operation.split(" ")
         op2 = op[1]
         if op2 != "old":
-           op2 = int(op[1])
+            op2 = int(op[1])
         else:
             op2 = "square"
         print(self.test)
         result = 0
         results = []
         for item in self.items:
-            if op == "+":
-                result = item + op2
+            if op[0] == "+":
+                result = item + int(op2)
             else:
                 if op2 == "square":
                     result = item * item
@@ -49,10 +53,9 @@ class Monkey:
             result = result // 3
             print("result : ", result)
             if result % int(self.test['test']) == 0:
-                results.append((int(self.test['t']), item))
+                results.append((self.id, int(self.test['t']), result))
             else:
-                results.append((int(self.test['f']), item))
-        self.items = []
+                results.append((self.id, int(self.test['f']), result))
         return results
 
     def __str__(self):
@@ -63,3 +66,21 @@ class Monkey:
         return f"{self.name}: {array}"
 
 
+# class ZOO
+class Zoo:
+    def __init__(self):
+        self.monkeys = []
+
+    def add_monkey(self, monkey):
+        self.monkeys.append(monkey)
+
+    def do_jobs(self, jobs):
+        for job in jobs:
+            self.monkeys[job[1]].add_item(job[2])
+            self.monkeys[job[0]].remove_item()
+
+    def __str__(self):
+        res = ""
+        for i in range(len(self.monkeys)):
+            res += f"Monkey {i} : {self.monkeys[i]}\n"
+        return res
