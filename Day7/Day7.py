@@ -1,5 +1,4 @@
 """Day 7"""
-from Day7.Tree import Dir, File
 from MyMods.ReadDataFile import read_data
 import re
 
@@ -29,7 +28,7 @@ $ ls
 
 
 def part1():
-	
+	pass
 
 def part2():
 	pass

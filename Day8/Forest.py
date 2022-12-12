@@ -1,3 +1,69 @@
+# class Forest
+# Makes a matrix of x wide and y high with trees 0
+# The method add_data populates the forest
+class Forest:
+
+    def __init__(self, data_list):
+        self.dim_y = len(data_list)
+        self.dim_x = len(data_list[0])
+        self.grid = [[0 for i in range(self.dim_x)] for j in range(self.dim_y)]
+        self.populate_forest(data_list)
+        self.visible = (2 * self.dim_x) + (2 * self.dim_y) - 4
+        self.calc()
+
+    def populate_forest(self, data):
+        y = 0
+        for i in range(self.dim_y):
+            x = 0
+            for j in range(self.dim_x):
+                self.grid[i][j] = data[i][j]
+                x += 1
+            y += 1
+
+    def calc(self):
+        visible = 0
+        y = 1
+        for i in range(1, self.dim_y - 1):
+            x = 1
+            for j in range(1, self.dim_x - 1):
+                if self.calc_visible(j, i):
+                    visible += 1
+                x += 1
+            y += 1
+        print(visible)
+        self.visible += visible
+
+    def calc_visible(self, x, y):
+        visible = False
+        for xs in range(self.dim_x):
+            if x == xs:
+                pass
+            else:
+                if self.grid[y][x] > self.grid[y][xs]:
+                    visible = visible or True
+                else:
+                    visible = visible or False
+        for ys in range(self.dim_y):
+            if y == ys:
+                pass
+            else:
+                if self.grid[y][x] > self.grid[ys][x]:
+                    visible = visible or True
+                else:
+                    visible = visible or False
+        return visible
+
+    def __str__(self):
+        res = ""
+        y = 0
+        for i in range(self.dim_y):
+            x = 0
+            for j  in range(self.dim_x):
+                res += str(self.grid[i][j])
+                x += 1
+            res += "\n"
+            y += 1
+        return res
 # Forest class
 
 class Forest:
