@@ -1,4 +1,5 @@
 """Day 7"""
+from Day7.DirTree import DirTree
 from MyMods.ReadDataFile import read_data
 import re
 
@@ -28,7 +29,14 @@ $ ls
 
 
 def part1():
-	pass
+	my_dir = DirTree()
+	my_dir.command("$ ls")
+	my_dir.command("dir a")
+	my_dir.command("14848514 b.txt")
+	my_dir.command("8504156 c.dat")
+	my_dir.command("dir d")
+	print(my_dir)
+
 
 def part2():
 	pass
