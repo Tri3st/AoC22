@@ -1,6 +1,6 @@
 # main for Advent of Code
 import os
-from Day21.Day21 import part1, part2
+from Day16.Day16 import part1, part2
 
 
 part1()
